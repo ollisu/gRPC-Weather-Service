@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package weather;
+
+// Define the weather service
+service WeatherService {
+  rpc StreamWeather(WeatherRequest) returns (stream WeatherResponse);
+}
+
+// Request message (empty in this case)
+message WeatherRequest {}
+
+// Response message with weather data
+message WeatherResponse {
+  string city = 1;
+  float temperature = 2;
+  int32 humidity = 3;
+  string condition = 4;
+}
