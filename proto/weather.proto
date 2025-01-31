@@ -1,13 +1,13 @@
 syntax = "proto3";
 
 package weather;
-
+import "google/protobuf/timestamp.proto";
 // Define the weather service
 service WeatherService {
   rpc StreamWeather(WeatherRequest) returns (stream WeatherResponse);
 }
 
-// Request message (empty in this case)
+// Request message (empty)
 message WeatherRequest {}
 
 // Response message with weather data
@@ -16,4 +16,5 @@ message WeatherResponse {
   float temperature = 2;
   int32 humidity = 3;
   string condition = 4;
+  google.protobuf.Timestamp timestamp = 5;
 }
